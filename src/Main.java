@@ -1,3 +1,8 @@
+import it.epicode.be.ArchivioCatalogo;
+import it.epicode.be.Libro;
+import it.epicode.be.Periodicita;
+import it.epicode.be.Rivista;
+
 public class Main {
     public static void main(String[] args) {
         ArchivioCatalogo archivio = new ArchivioCatalogo();
@@ -23,14 +28,12 @@ public class Main {
     }
 
     private static void eseguiOperazioni(ArchivioCatalogo archivio) {
-
         archivio.ricercaPerISBN("ISBN123").ifPresent(System.out::println);
         archivio.ricercaPerAnnoPubblicazione(2022).forEach(System.out::println);
         archivio.ricercaPerAutore("Autore 1").forEach(System.out::println);
     }
 
     private static void salvaECaricaSuDisco(ArchivioCatalogo archivio) throws IOException, ClassNotFoundException {
-
         archivio.salvaSuDisco("archivio.dat");
 
         ArchivioCatalogo archivioCaricato = new ArchivioCatalogo();
